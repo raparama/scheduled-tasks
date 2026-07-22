@@ -15,7 +15,7 @@ weather_params = {
     "appid" :   api_key,
     "cnt"   :   4
 }
-
+print(api_key, account_sid, auth_token)
 response = requests.get(url=OWM_Endpoint, params=weather_params)
 print(response.status_code)
 response.raise_for_status()
