@@ -12,17 +12,17 @@ weather_params = {
     "appid" :   OWM_API_KEY,
     "cnt"   :   4
 }
-print(OWM_API_KEY, ACCOUNT_SID, AUTH_TOKEN,weather_params)
 response = requests.get(url=OWM_Endpoint, params=weather_params)
 print(response.status_code)
 response.raise_for_status()
 weather_data = response.json()
-print(weather_data)
+
 will_rain = False
 for hour_data in weather_data["list"]:
     condition_code = hour_data["weather"][0]["id"]
     if int(condition_code) < 700:
         will_rain = True
+        print(will_rain)
 
 if will_rain:
     client = Client(ACCOUNT_SID, AUTH_TOKEN)
